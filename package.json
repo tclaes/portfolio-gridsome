@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-gridsome",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.7.0",
+    "gridsome-source-sanity": "^1.0.5",
+    "vue-fixed-header": "^3.2.14",
+    "vue-sticky": "^3.3.4"
+  }
+}

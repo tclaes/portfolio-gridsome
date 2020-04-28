@@ -11,7 +11,7 @@ const LOAD_ALL_LINKS = `
 `;
 
 exports.handler = async () => {
-  const { data } = await sendQuery(LOAD_ALL_LINKS);
+  const { data, errors } = await sendQuery(LOAD_ALL_LINKS);
 
     if (errors) {
       return {

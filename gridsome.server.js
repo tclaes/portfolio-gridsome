@@ -1,13 +1,29 @@
-// Server API makes it possible to hook into various parts of Gridsome
-// on server-side and add custom data to the GraphQL data layer.
-// Learn more: https://gridsome.org/docs/server-api/
+const sendQuery = require('./functions/utils/send-query');
 
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
+const LOAD_ALL_LINKS = `
+  query {
+    allNavItems {
+      data {
+        text
+      }
+    }
+  }
+`;
 
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+  api.loadSource(async actions => {
+    const { data } = await sendQuery(LOAD_ALL_LINKS);
+  
+    const collection = actions.addCollection({
+      typeName: 'MenuItems'
+    })
+
+    for (item of data.allNavItems.data) {
+      collection.addNode({
+        text: item.text,
+      });
+    }
+
   })
 
   api.createPages(({ createPage }) => {

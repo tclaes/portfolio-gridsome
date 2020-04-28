@@ -2,10 +2,12 @@
   <div>
     <div class="gradient">
     </div>
+    <Spinner :isLoading="dataLoaded" />
+     <Navigation />
     <div class="layout">
-      <Nav/>
-      <slot/>
+      <slot />
     </div>
+    <Footer />
   </div>
 
 </template>
@@ -19,12 +21,24 @@ query {
 </static-query>
 
 <script>
-  import Nav from "~/components/Nav";
+  import Navigation from "~/components/Navigation";
+  import Spinner from "~/components/Spinner";
+  import Footer from "~/components/Footer";
 
   export default {
     components: {
-      Nav
+      Navigation, 
+      Spinner,
+      Footer,
     },
+    data() {
+      return {
+        dataLoaded: true 
+        }
+    },
+    mounted() {
+      setTimeout(() => this.dataLoaded = false, 2000);
+    }
   }
 </script>
 
@@ -39,7 +53,7 @@ body {
 }
 
 .layout {
-  max-width: 760px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;

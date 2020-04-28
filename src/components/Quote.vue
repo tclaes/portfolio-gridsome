@@ -10,17 +10,17 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
     .quote {
         color: #333;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: bold;
         flex-direction: column;
-        height: calc(100vh - 150px);
         margin: 0 auto;
+        max-width: 500px;
     }
     .quote::before, .quote::after {
         background: rgba(255, 0, 0,.5);

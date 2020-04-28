@@ -1,10 +1,10 @@
 [build]
   functions = "functions"
-  publish = "public"
+  publish = "dist"
 
 [dev]
   command = "yarn develop"
-  publish = "public"
+  publish = "dist"
   port = 8888 # port where Netlify Dev runs
   targetPort = 8080 # port where Gatsby runs
 

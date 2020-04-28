@@ -1,29 +1,18 @@
-const sendQuery = require('./functions/utils/send-query');
 
-const LOAD_ALL_LINKS = `
-  query {
-    allNavItems {
-      data {
-        text
-      }
-    }
-  }
-`;
 
 module.exports = function (api) {
   api.loadSource(async actions => {
-    const { data } = await sendQuery(LOAD_ALL_LINKS);
+    // const data = getAllLinks();
   
-    const collection = actions.addCollection({
-      typeName: 'MenuItems'
-    })
+    // const collection = actions.addCollection({
+    //   typeName: 'MenuItems'
+    // })
 
-    for (item of data.allNavItems.data) {
-      collection.addNode({
-        text: item.text,
-      });
-    }
-
+    // for (item of data.body) {
+    //   collection.addNode({
+    //     text: item.text,
+    //   });
+    // }
   })
 
   api.createPages(({ createPage }) => {

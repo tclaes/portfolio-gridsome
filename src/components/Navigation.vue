@@ -12,9 +12,9 @@
           </div>
           <div class="nav-links">
             <g-link class="nav__link" to="/">Home</g-link>
-            <span v-for="links in $static.links.edges" :key="links.node.id">
+            <!-- <span v-for="links in $static.links.edges" :key="links.node.id">
               <a class="nav__link" href="#about">{{ links.node.text }}</a>
-            </span>
+            </span> -->
           </div>
         </nav>
       </div>
@@ -22,40 +22,12 @@
   </fixed-header>
 </template>
 
-<static-query>
-query {
-  links: allMenuItems {
-    edges {
-      node {
-        id, 
-        text
-      }
-    }
-  }
-}
-</static-query>
-
 <script>
 import FixedHeader from 'vue-fixed-header';
-const sendQuery = require('../../functions/utils/send-query');
-
-const query = `
-  query{
-    allNavItems{
-      data{
-        text
-      }
-    }
-  }
-`;
 
 export default {
   components: {
     FixedHeader,
-  }, 
-  async created() {
-    // const { data } = await sendQuery(query)
-    // console.log(data.allNavItems.data);
   }
 };
 </script>
